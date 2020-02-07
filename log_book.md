@@ -13,3 +13,7 @@ En jämförelse för vilka linjära lösare/prekonditionerare som funkar på det
 ### 4/2 - Översikt
 
 Vi har börjat sätta oss in i ISMIP-HOP B experimentet, och med detta har frågor uppstått. Dessa har samanställts i dokumentet *questions*, och handlar om själva felanalysen. Tagit fram några preliminära residual-norm plottar.
+
+### 5/2 - Möte med Josefin 
+
+Jonatan och jag hade några frågor specifikt angående ISMIP-HOP experimentet samt detaljer i koden. Vi fick dessa klargjorda. Efteråt satt vi och började lyckas få fram plottar där vi undersöker residualnormen mot antalet iterationer (både Newton och Krylov iterationer). 
