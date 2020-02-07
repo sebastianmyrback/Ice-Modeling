@@ -1,4 +1,4 @@
-## Preliminary observations of the linear solvers of FEniCS applied to artificial glacier model
+# Preliminary observations of the linear solvers of FEniCS applied to artificial glacier model
 
 1. Switching *p* towards 2 (linear) gave extremely low velocity profiles.
 2. Velocity profile for eps = 1e-2 was higher than for eps = 1e-7. 
@@ -9,7 +9,7 @@ Here, an uppper limit of 50 000 linear solver iterations was set. Some combinati
 
 We will investigate two types of iterative solvers: Krylov solvers and multigrid solvers.
 
-### Krylov Solvers
+## Krylov Solvers
 
 The, in FEniCS, available Krylov *linear solvers* are:
 
@@ -36,17 +36,15 @@ The, in FEniCS, available Krylov *preconditioners* are:
 * sor              |  Successive over-relaxation  
 
 
-### Investigation of Preconditioners:
-
 | Linear Solver | Preconditioner| Converging Solution|
 | ------------- |:-------------:| -----:|
 | Generalized minimal residual method | Algebraic multigrid 'amg'| No |
-**| Generalized minimal residual method | Default preconditioner  'default'| Yes |**
+| **Generalized minimal residual method** | **Default preconditioner  'default'**| **Yes**|
 | Generalized minimal residual method | Hypre algebraic multigrid 'hypre_amg' | No |
 | Generalized minimal residual method | Hypre parallel incomplete LU factorization 'hypre_euclid'| No|
 | Generalized minimal residual method | Hypre parallel sparse approximate inverse 'hypre_parasails'| No |
 | Generalized minimal residual method | Incomplete Cholesky factorization 'icc' | No |
-**| Generalized minimal residual method | Incomplete LU factorization 'ilu'| Yes |**
+| **Generalized minimal residual method** | **Incomplete LU factorization 'ilu'**| **Yes** |
 | Generalized minimal residual method | Jacobi iteration 'jacobi'| No |
 | Generalized minimal residual method | No preconditioner 'none'| No |
 | Generalized minimal residual method | PETSc algebraic multigrid 'petsc_amg'| No |
@@ -54,13 +52,13 @@ The, in FEniCS, available Krylov *preconditioners* are:
 
 | Linear Solver | Preconditioner| Converging Solution|
 | ------------- |:-------------:| -----:|
-| Biconjugate gradient stabilized method 'bicgstab' | Algebraic multigrid 'amg'| Yes but incorrect solution (might also converge only for small grid sizes)|
-| Biconjugate gradient stabilized method 'bicgstab' | Default preconditioner  'default'| Yes |
+| Biconjugate gradient stabilized method 'bicgstab' | Algebraic multigrid 'amg'| No|
+| **Biconjugate gradient stabilized method 'bicgstab'** | **Default preconditioner  'default'**| **Yes** |
 | Biconjugate gradient stabilized method 'bicgstab' | Hypre algebraic multigrid 'hypre_amg' | No |
 | Biconjugate gradient stabilized method 'bicgstab' | Hypre parallel incomplete LU factorization 'hypre_euclid'| No|
 | Biconjugate gradient stabilized method 'bicgstab' | Hypre parallel sparse approximate inverse 'hypre_parasails'| No |
 | Biconjugate gradient stabilized method 'bicgstab' | Incomplete Cholesky factorization 'icc' | No |
-| Biconjugate gradient stabilized method 'bicgstab' | Incomplete LU factorization 'ilu'| Yes |
+| **Biconjugate gradient stabilized method 'bicgstab'** | **Incomplete LU factorization 'ilu'**| **Yes** |
 | Biconjugate gradient stabilized method 'bicgstab' | Jacobi iteration 'jacobi'| No |
 | Biconjugate gradient stabilized method 'bicgstab' | No preconditioner 'none'| No |
 | Biconjugate gradient stabilized method 'bicgstab' | PETSc algebraic multigrid 'petsc_amg'| No, but does only ~2 Krylov iters. for each Newton iteration|
@@ -77,10 +75,10 @@ The, in FEniCS, available Krylov *preconditioners* are:
 | Minimal residual method 'minres' | Hypre algebraic multigrid 'hypre_amg' | No|
 | Minimal residual method 'minres' | Hypre parallel incomplete LU factorization 'hypre_euclid' | No|
 | Minimal residual method 'minres' | Hypre parallel sparse approximate inverse 'hypre_parasails'| No|
-| Minimal residual method 'minres' | Incomplete Cholesky factorization 'icc' | Yes up to ~ 20x10 grid|
+| **Minimal residual method 'minres'** | **Incomplete Cholesky factorization 'icc'** | **Yes up to ~ 20x10 grid**|
 | Minimal residual method 'minres' | Incomplete LU factorization 'ilu'| No |
 | Minimal residual method 'minres' | Jacobi iteration 'jacobi' | No|
-| Minimal residual method 'minres' | No preconditioner 'none' | Yes |
+| **Minimal residual method 'minres'** | **No preconditioner 'none'** | **Yes** |
 | Minimal residual method 'minres' | PETSc algebraic multigrid 'petsc_amg' | No|
 | Minimal residual method 'minres' | Successive over-relaxation 'sor' | No|
 
@@ -91,21 +89,19 @@ The, in FEniCS, available Krylov *preconditioners* are:
 | Linear Solver | Preconditioner| Converging Solution|
 | ------------- |:-------------:| -----:|
 | Transpose-free quasi-minimal residual method 'tfqmr'| Hypre algebraic multigrid 'hypre_amg' | No|
-| Transpose-free quasi-minimal residual method 'tfqmr' | Default preconditioner  'default' | Yes|
-FORTSÄTT HÄR
+| **Transpose-free quasi-minimal residual method 'tfqmr'** | **Default preconditioner  'default'** | **Yes**|
 | Transpose-free quasi-minimal residual method 'tfqmr' | Hypre algebraic multigrid 'hypre_amg' | No|
 | Transpose-free quasi-minimal residual method 'tfqmr' | Hypre parallel incomplete LU factorization 'hypre_euclid' | No|
 | Transpose-free quasi-minimal residual method 'tfqmr' | Hypre parallel sparse approximate inverse 'hypre_parasails'| No|
 | Transpose-free quasi-minimal residual method 'tfqmr' | Incomplete Cholesky factorization 'icc' | No |
-| Transpose-free quasi-minimal residual method 'tfqmr' | Incomplete LU factorization 'ilu'| Yes |
-| Transpose-free quasi-minimal residual method 'tfqmr' | Jacobi iteration 'jacobi' | No|
-| Transpose-free quasi-minimal residual method 'tfqmr' | No preconditioner 'none' | Yes |
+| **Transpose-free quasi-minimal residual method 'tfqmr'** | **Incomplete LU factorization 'ilu'**| **Yes** |
+| **Transpose-free quasi-minimal residual method 'tfqmr'** | **Jacobi iteration 'jacobi'** | **Yes**|
+| **Transpose-free quasi-minimal residual method 'tfqmr'** | **No preconditioner 'none'** | **Yes up to ~30x15 grid** |
 | Transpose-free quasi-minimal residual method 'tfqmr' | PETSc algebraic multigrid 'petsc_amg' | No|
 | Transpose-free quasi-minimal residual method 'tfqmr' | Successive over-relaxation 'sor' | No|
 
 
 
-### Investigation of Linear solvers 
 
 | Linear Solver | Preconditioner| Converging Solution|
 | ------------- |:-------------:| -----:|
