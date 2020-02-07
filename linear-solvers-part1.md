@@ -41,7 +41,7 @@ The, in FEniCS, available Krylov *preconditioners* are:
 | Linear Solver | Preconditioner| Converging Solution|
 | ------------- |:-------------:| -----:|
 | Generalized minimal residual method | Algebraic multigrid 'amg'| No |
-| Generalized minimal residual method | Default preconditioner  'default'| Yes |
+<span style="color: red;">| Generalized minimal residual method | Default preconditioner  'default'| Yes |</span>
 | Generalized minimal residual method | Hypre algebraic multigrid 'hypre_amg' | No |
 | Generalized minimal residual method | Hypre parallel incomplete LU factorization 'hypre_euclid'| No|
 | Generalized minimal residual method | Hypre parallel sparse approximate inverse 'hypre_parasails'| No |
@@ -96,8 +96,8 @@ FORTSÄTT HÄR
 | Transpose-free quasi-minimal residual method 'tfqmr' | Hypre algebraic multigrid 'hypre_amg' | No|
 | Transpose-free quasi-minimal residual method 'tfqmr' | Hypre parallel incomplete LU factorization 'hypre_euclid' | No|
 | Transpose-free quasi-minimal residual method 'tfqmr' | Hypre parallel sparse approximate inverse 'hypre_parasails'| No|
-| Transpose-free quasi-minimal residual method 'tfqmr' | Incomplete Cholesky factorization 'icc' | Yes up to ~ 20x10 grid|
-| Transpose-free quasi-minimal residual method 'tfqmr' | Incomplete LU factorization 'ilu'| No |
+| Transpose-free quasi-minimal residual method 'tfqmr' | Incomplete Cholesky factorization 'icc' | No |
+| Transpose-free quasi-minimal residual method 'tfqmr' | Incomplete LU factorization 'ilu'| Yes |
 | Transpose-free quasi-minimal residual method 'tfqmr' | Jacobi iteration 'jacobi' | No|
 | Transpose-free quasi-minimal residual method 'tfqmr' | No preconditioner 'none' | Yes |
 | Transpose-free quasi-minimal residual method 'tfqmr' | PETSc algebraic multigrid 'petsc_amg' | No|
