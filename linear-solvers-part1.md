@@ -1,7 +1,5 @@
 ## Preliminary observations of the linear solvers of FEniCS applied to artificial glacier model
 
-<span style="color:blue">some *This is Blue italic.* text</span>
-
 1. Switching *p* towards 2 (linear) gave extremely low velocity profiles.
 2. Velocity profile for eps = 1e-2 was higher than for eps = 1e-7. 
 
@@ -43,12 +41,12 @@ The, in FEniCS, available Krylov *preconditioners* are:
 | Linear Solver | Preconditioner| Converging Solution|
 | ------------- |:-------------:| -----:|
 | Generalized minimal residual method | Algebraic multigrid 'amg'| No |
-| Generalized minimal residual method | Default preconditioner  'default'| Yes |
+**| Generalized minimal residual method | Default preconditioner  'default'| Yes |**
 | Generalized minimal residual method | Hypre algebraic multigrid 'hypre_amg' | No |
 | Generalized minimal residual method | Hypre parallel incomplete LU factorization 'hypre_euclid'| No|
 | Generalized minimal residual method | Hypre parallel sparse approximate inverse 'hypre_parasails'| No |
 | Generalized minimal residual method | Incomplete Cholesky factorization 'icc' | No |
-| Generalized minimal residual method | Incomplete LU factorization 'ilu'| Yes |
+**| Generalized minimal residual method | Incomplete LU factorization 'ilu'| Yes |**
 | Generalized minimal residual method | Jacobi iteration 'jacobi'| No |
 | Generalized minimal residual method | No preconditioner 'none'| No |
 | Generalized minimal residual method | PETSc algebraic multigrid 'petsc_amg'| No |
