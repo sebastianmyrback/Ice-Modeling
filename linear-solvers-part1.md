@@ -5,18 +5,38 @@
 
 ## Tables of working linear solvers and preconditioners applied to this problem
 
-Here, an uppper limit of 50 000 linear solver iterations was set. Some combinations would possible converge for a greater number of allowed iterations, but we had to set some limit. Listed is all available linear solvers, however we are only interested in the Krylov solvers which are
+Here, an uppper limit of 50 000 linear solver iterations was set. Some combinations would possible converge for a greater number of allowed iterations, but we had to set some limit. 
 
-* bicgstab        
-* cg                           
-* default                              
-* gmres                 
-* minres                             
-* richardson                      
-* tfqmr
+We will investigate two types of iterative solvers: Krylov solvers and multigrid solvers.
+
+### Krylov Solvers
+
+The, in FEniCS, available Krylov *linear solvers* are:
+
+* bicgstab       |  Biconjugate gradient stabilized method      
+* cg             |  Conjugate gradient method                   
+* default        |  default Krylov method                       
+* gmres          |  Generalized minimal residual method         
+* minres         |  Minimal residual method                     
+* richardson     |  Richardson method                           
+* tfqmr          |  Transpose-free quasi-minimal residual method
+
+The, in FEniCS, available Krylov *preconditioners* are:
+
+* amg              |  Algebraic multigrid                       
+* default          |  default preconditioner                    
+* hypre_amg        |  Hypre algebraic multigrid (BoomerAMG)     
+* hypre_euclid     |  Hypre parallel incomplete LU factorization
+* hypre_parasails  |  Hypre parallel sparse approximate inverse 
+* icc              |  Incomplete Cholesky factorization         
+* ilu              |  Incomplete LU factorization               
+* jacobi           |  Jacobi iteration                          
+* none             |  No preconditioner                         
+* petsc_amg        |  PETSc algebraic multigrid                 
+* sor              |  Successive over-relaxation  
 
 
-### Preconditioners:
+### Investigation of Preconditioners:
 
 | Linear Solver | Preconditioner| Converging Solution|
 | ------------- |:-------------:| -----:|
@@ -52,13 +72,40 @@ Here, an uppper limit of 50 000 linear solver iterations was set. Some combinati
 
 | Linear Solver | Preconditioner| Converging Solution|
 | ------------- |:-------------:| -----:|
-| Minimal residual method 'minres' | None | Yes|
+| Minimal residual method 'minres' | Hypre algebraic multigrid 'hypre_amg' | No|
+| Minimal residual method 'minres' | Default preconditioner  'default' | No|
+| Minimal residual method 'minres' | Hypre algebraic multigrid 'hypre_amg' | No|
+| Minimal residual method 'minres' | Hypre parallel incomplete LU factorization 'hypre_euclid' | No|
+| Minimal residual method 'minres' | Hypre parallel sparse approximate inverse 'hypre_parasails'| No|
+| Minimal residual method 'minres' | Incomplete Cholesky factorization 'icc' | Yes up to ~ 20x10 grid|
+| Minimal residual method 'minres' | Incomplete LU factorization 'ilu'| No |
+| Minimal residual method 'minres' | Jacobi iteration 'jacobi' | No|
+| Minimal residual method 'minres' | No preconditioner 'none' | Yes |
+| Minimal residual method 'minres' | PETSc algebraic multigrid 'petsc_amg' | No|
+| Minimal residual method 'minres' | Successive over-relaxation 'sor' | No|
 
 | Linear Solver | Preconditioner| Converging Solution|
 | ------------- |:-------------:| -----:|
-| MUltifrontal Massively Parallel Sparse direct Solver 'petsc' | amg | Yes|
+| Richardson method 'richardson' | All | No|
 
-### Linear solvers 
+| Linear Solver | Preconditioner| Converging Solution|
+| ------------- |:-------------:| -----:|
+| Transpose-free quasi-minimal residual method 'tfqmr'| Hypre algebraic multigrid 'hypre_amg' | No|
+| Transpose-free quasi-minimal residual method 'tfqmr' | Default preconditioner  'default' | Yes|
+FORTSÄTT HÄR
+| Transpose-free quasi-minimal residual method 'tfqmr' | Hypre algebraic multigrid 'hypre_amg' | No|
+| Transpose-free quasi-minimal residual method 'tfqmr' | Hypre parallel incomplete LU factorization 'hypre_euclid' | No|
+| Transpose-free quasi-minimal residual method 'tfqmr' | Hypre parallel sparse approximate inverse 'hypre_parasails'| No|
+| Transpose-free quasi-minimal residual method 'tfqmr' | Incomplete Cholesky factorization 'icc' | Yes up to ~ 20x10 grid|
+| Transpose-free quasi-minimal residual method 'tfqmr' | Incomplete LU factorization 'ilu'| No |
+| Transpose-free quasi-minimal residual method 'tfqmr' | Jacobi iteration 'jacobi' | No|
+| Transpose-free quasi-minimal residual method 'tfqmr' | No preconditioner 'none' | Yes |
+| Transpose-free quasi-minimal residual method 'tfqmr' | PETSc algebraic multigrid 'petsc_amg' | No|
+| Transpose-free quasi-minimal residual method 'tfqmr' | Successive over-relaxation 'sor' | No|
+
+
+
+### Investigation of Linear solvers 
 
 | Linear Solver | Preconditioner| Converging Solution|
 | ------------- |:-------------:| -----:|
