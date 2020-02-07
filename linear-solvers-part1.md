@@ -41,7 +41,8 @@ The, in FEniCS, available Krylov *preconditioners* are:
 | Linear Solver | Preconditioner| Converging Solution|
 | ------------- |:-------------:| -----:|
 | Generalized minimal residual method | Algebraic multigrid 'amg'| No |
-<span style="color: red;">| Generalized minimal residual method | Default preconditioner  'default'| Yes |</span>
+<span style="color: red;">hjehjehjehehje</span>
+| Generalized minimal residual method | Default preconditioner  'default'| Yes |
 | Generalized minimal residual method | Hypre algebraic multigrid 'hypre_amg' | No |
 | Generalized minimal residual method | Hypre parallel incomplete LU factorization 'hypre_euclid'| No|
 | Generalized minimal residual method | Hypre parallel sparse approximate inverse 'hypre_parasails'| No |
