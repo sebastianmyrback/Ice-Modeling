@@ -104,13 +104,9 @@ The, in FEniCS, available Krylov *preconditioners* are:
 
 | Linear Solver | Preconditioner| Converging Solution|
 | ------------- |:-------------:| -----:|
-| **Generalized minimal residual method** | **Default preconditioner  'default'**| **Yes**|
 | **Generalized minimal residual method** | **Incomplete LU factorization 'ilu'**| **Yes** |
-| **Biconjugate gradient stabilized method 'bicgstab'** | **Default preconditioner  'default'**| **Yes** |
 | **Biconjugate gradient stabilized method 'bicgstab'** | **Incomplete LU factorization 'ilu'**| **Yes** |
-| **Minimal residual method 'minres'** | **Incomplete Cholesky factorization 'icc'** | **Yes up to ~ 20x10 grid**|
 | **Minimal residual method 'minres'** | **No preconditioner 'none'** | **Yes** |
-| **Transpose-free quasi-minimal residual method 'tfqmr'** | **Default preconditioner  'default'** | **Yes**|
 | **Transpose-free quasi-minimal residual method 'tfqmr'** | **Incomplete LU factorization 'ilu'**| **Yes** |
 | **Transpose-free quasi-minimal residual method 'tfqmr'** | **Jacobi iteration 'jacobi'** | **Yes**|
 | **Transpose-free quasi-minimal residual method 'tfqmr'** | **No preconditioner 'none'** | **Yes up to ~30x15 grid** |
