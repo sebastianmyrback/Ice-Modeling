@@ -100,7 +100,7 @@ The, in FEniCS, available Krylov *preconditioners* are:
 | Transpose-free quasi-minimal residual method 'tfqmr' | PETSc algebraic multigrid 'petsc_amg' | No|
 | Transpose-free quasi-minimal residual method 'tfqmr' | Successive over-relaxation 'sor' | No|
 
-### Working Combinations
+### Working Combinations for full grid size 40x20
 
 | Linear Solver | Preconditioner| Converging Solution|
 | ------------- |:-------------:| -----:|
@@ -109,7 +109,7 @@ The, in FEniCS, available Krylov *preconditioners* are:
 | **Minimal residual method 'minres'** | **No preconditioner 'none'** | **Yes** |
 | **Transpose-free quasi-minimal residual method 'tfqmr'** | **Incomplete LU factorization 'ilu'**| **Yes** |
 | **Transpose-free quasi-minimal residual method 'tfqmr'** | **Jacobi iteration 'jacobi'** | **Yes**|
-| **Transpose-free quasi-minimal residual method 'tfqmr'** | **No preconditioner 'none'** | **Yes up to ~30x15 grid** |
+
 
 
 
