@@ -26,4 +26,4 @@ De mer teoretiska sakerna som behövs förstås är
 
 * Hur beror konvergens av linjära lösare/prekonditionerare på konditionstalet?
 * Hur beror konvergens av lösningen på utseendet/egenskaperna hos vår systemmatris?
-
+* Exakt hur interagerar Newton iterationerna med de linjära iterationerna?
