@@ -127,3 +127,12 @@ The, in FEniCS, available Krylov *preconditioners* are:
 | Unsymmetric MultiFrontal sparse LU factorization 'umfpack'| Incomplete LU factorization | No ('Unknown Krylov Method')|
 
 
+## Non-Krylov Linear Solvers
+
+* MUltifrontal Massively Parallel Sparse direct Solver 'mumps'
+* PETSc built in LU solver 'petsc'
+* Unsymmetric MultiFrontal sparse LU factorization 'umfpack'
+
+## Multigrid Preconditioners
+
+* amg
