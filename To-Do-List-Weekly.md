@@ -1,6 +1,5 @@
-## Vecka 6
-
-### Jämförelse med ISMIP-HOP experiment B
+### Vecka 6
+**Jämförelse med ISMIP-HOP experiment B:**
 
 Main focus will be to set up the code in a way that we can compare relevant parameters measured in the ISMIP-HOP experiment B. 
 These can be shown in the *ISMIP-HOP* folder. The following results are benchmarked.
@@ -18,7 +17,7 @@ lösningar. En idé kanske är att göra en medelvärdesbildning av dessa och j�
 
 Vi behöver också såklart ta fram alla ovanstående parametrar. 
 
-### v.8-9
+### v.7-8
 
 * Vi har nu lyckats ta fram plottar för konvergens av krylovlösare med prekonditionerare både mot antal newton iterationer samt antal krylov iterationer. De ser hyfsade ut.
 
