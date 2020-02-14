@@ -133,6 +133,3 @@ The, in FEniCS, available Krylov *preconditioners* are:
 * PETSc built in LU solver 'petsc'
 * Unsymmetric MultiFrontal sparse LU factorization 'umfpack'
 
-## Multigrid Preconditioners
-
-* amg
