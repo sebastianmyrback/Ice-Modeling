@@ -43,10 +43,10 @@ The, in FEniCS, available Krylov *preconditioners* are:
 | Generalized minimal residual method | Hypre algebraic multigrid 'hypre_amg' | No |
 | Generalized minimal residual method | Hypre parallel incomplete LU factorization 'hypre_euclid'| No|
 | Generalized minimal residual method | Hypre parallel sparse approximate inverse 'hypre_parasails'| No |
-| Generalized minimal residual method | Incomplete Cholesky factorization 'icc' | No |
+| **Generalized minimal residual method** | **Incomplete Cholesky factorization 'icc'** | **Yes** |
 | **Generalized minimal residual method** | **Incomplete LU factorization 'ilu'**| **Yes** |
 | Generalized minimal residual method | Jacobi iteration 'jacobi'| No |
-| Generalized minimal residual method | No preconditioner 'none'| No |
+| **Generalized minimal residual method** | **No preconditioner 'none'**| **Yes** |
 | Generalized minimal residual method | PETSc algebraic multigrid 'petsc_amg'| No |
 | Generalized minimal residual method | Successive over-relaxation 'sor'| No |
 
@@ -138,4 +138,5 @@ The, in FEniCS, available Krylov *preconditioners* are:
 
 * (gmres, ilu) for grid size (nx, ny) = (40,20) and mesh_length = 40 000.
 * (bicgstab, ilu) for grid size (nx, ny) = (60, 30) and mesh_length = 80 000.
+* (gmres, ilu) for grid size (nx, ny) = (60, 30) and mesh_length = 80 000.
 
