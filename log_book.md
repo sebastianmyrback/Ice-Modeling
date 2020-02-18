@@ -16,4 +16,7 @@ Vi har börjat sätta oss in i ISMIP-HOP B experimentet, och med detta har fråg
 
 ### 5/2 - Möte med Josefin 
 
-Jonatan och jag hade några frågor specifikt angående ISMIP-HOP experimentet samt detaljer i koden. Vi fick dessa klargjorda. Efteråt satt vi och började lyckas få fram plottar där vi undersöker residualnormen mot antalet iterationer (både Newton och Krylov iterationer). 
+Jonatan och Sebastian hade några frågor specifikt angående ISMIP-HOP experimentet samt detaljer i koden. Vi fick dessa klargjorda. Efteråt satt vi och började lyckas få fram plottar där vi undersöker residualnormen mot antalet iterationer (både Newton och Krylov iterationer). 
+
+### 13/2 - Möte med Josefin
+Under dagens möte diskuterades 'Krylov sub-spaces', josefin bad oss undersöka beroendet av grid size för de olika lösarna. Undersökningen av lösningsmetoderna gav överensstämmande resultat med benchmark-datan. Josefin bad oss förklara olika lösare och varför de olika fungerar olika bra. Josefin uppmanade oss att läsa senaste IPCC-rapporten om kryosfären.
