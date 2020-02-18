@@ -31,3 +31,12 @@ De mer teoretiska sakerna som behövs förstås är
 * Hur beror konvergens av linjära lösare/prekonditionerare på konditionstalet?
 * Hur beror konvergens av lösningen på utseendet/egenskaperna hos vår systemmatris?
 * Exakt hur interagerar Newton iterationerna med de linjära iterationerna?
+
+## NU
+
+* Vi har hittat ett sätt för att få fler fall av GMRES att konvergera, genom att starta om KrylovIterationerna mitt under körning ifall det går för långsamt. Då uppstår frågan om detta också går att göra för andra krylov lösare som t.ex. bicgstab. Känns som att resultaten för de andra linjära lösarna blir lite godtyckliga isåfall?
+
+* Inte lyckats hitta jättemycket exakta formler för relation mellan konditionstal och antal iterationer som krävs. 
+
+* Skall vi ta fram relation mellan hur p och epsilon förändrar antalet iterationer med plottar?
+
