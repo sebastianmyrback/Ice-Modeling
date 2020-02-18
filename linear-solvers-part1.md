@@ -133,3 +133,9 @@ The, in FEniCS, available Krylov *preconditioners* are:
 * PETSc built in LU solver 'petsc'
 * Unsymmetric MultiFrontal sparse LU factorization 'umfpack'
 
+
+## Strange Special Cases:
+
+* (gmres, ilu) for grid size (nx, ny) = (40,20) and mesh_length = 40 000.
+* (bicgstab, ilu) for grid size (nx, ny) = (60, 30) and mesh_length = 80 000.
+
