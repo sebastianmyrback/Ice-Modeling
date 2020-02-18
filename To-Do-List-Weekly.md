@@ -19,7 +19,7 @@ Vi behöver också såklart ta fram alla ovanstående parametrar.
 
 ### v.7-8
 
-* Vi har nu lyckats ta fram plottar för konvergens av krylovlösare med prekonditionerare både mot antal newton iterationer samt antal krylov iterationer. De ser hyfsade ut.
+* Vi har nu lyckats ta fram plottar för konvergens av krylovlösare med prekonditionerare både mot antal newton iterationer samt antal krylov iterationer. Vi upptäckte problem med konvergens för flera specialfall när vi försökte undersöka krylov iterationer mot grid storlek. 
 
 De mer praktiska sakerna som behövs göras framöver är
 
