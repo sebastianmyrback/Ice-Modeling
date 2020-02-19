@@ -20,3 +20,8 @@ Jonatan och Sebastian hade några frågor specifikt angående ISMIP-HOP experime
 
 ### 13/2 - Möte med Josefin
 Under dagens möte diskuterades 'Krylov sub-spaces', josefin bad oss undersöka beroendet av grid size för de olika lösarna. Undersökningen av lösningsmetoderna gav överensstämmande resultat med benchmark-datan. Josefin bad oss förklara olika lösare och varför de olika fungerar olika bra. Josefin uppmanade oss att läsa senaste IPCC-rapporten om kryosfären.
+
+### INSERT SPONTANMÖTE MED JOSEFIN OCH CHRISTIAN
+
+### 19/2 - Framtagning av fler Newton plottar
+Jag har idag tagit fram en undersökning för hur konditionstalet beror på newton iterationerna. Ett minimum av konditionstalet finnes för lägre antal iterationer, medan peakar kan ses för konditionstal mellan 6-10 framför allt. 
