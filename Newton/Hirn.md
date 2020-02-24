@@ -11,3 +11,8 @@ Hirn föreslår en förbättringar av Newtons metod för att lösa p-Stokes ekva
 ### Diskretisering
 
 Diskretiseringen av problemet görs 
+
+
+### Funderingar
+
+* Hirn får p-Stokes att konvergera mha GMRES samt multigrid prekonditionerare, det lyckas inte vi med. Beror det på att han använder LPS medan vi använder GLS som stabilisering?
