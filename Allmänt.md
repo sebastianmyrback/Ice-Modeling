@@ -274,3 +274,90 @@ just nu, jag ska dubbelkolla det.
 Hälsningar,
 
 Josefin
+
+### Sammanfattning v.8
+Hej,
+
+Ursäkta mitt sena svar! Jag svarar "inline" i ert mejl:
+
+>
+>
+> Det vi gjort det senaste är:
+>
+>
+> 1.  Undersökt mer om konditionstalets relation till meshstorlek och
+> kryloviterationer.
+
+
+Här ser man ju iaf att konditionstal och krylov-iterationer ökar med
+minskande meshstorlek. Två grejer att fundera på här är:
+
+- Öker det som h^2 (detta är vad teorin säger)?
+- Varför är det så stort även för grova nät? Detta kan vi diskutera
+tillsammans på gruppmötet
+
+>
+> 2.  Hur konditionstalet beror på antalet Newton iterationer.
+>
+
+Det ser ut att vara någorlunda stabilt som ni säger, och alltid av
+storleksordningen 1e18. Så det var ju skönt, det hade blivit rörigt att
+tänka om det varierade mycket :)
+
+> 3.  Hur konditionstalet beror på parametern p.
+>
+
+Detta var ett knivigt problem. Dock ser konditionstalet även här
+relativt stabilt ut, dvs det är alltid av storleksordningen 1e18. Man
+kan inte tydligt se att förhållandet som finns i ekvation 6.14 i Hirns
+avhandling gäller. Detta kan vi diskutera på gruppmötet, jag ska fundera
+lite.
+
+Christian håller på att fixa så ni kan ta ut bara A-delen av matrisen,
+man kan ju hoppas att det blir tydligare då.
+
+> 4.  Hur konditionstalet beror på parametern epsilon.
+>
+Jag hittar inte dom här plottarna, visa dom hemskt gärna på gruppmötet!
+Det vore intressant att se om ekvation 6.14 verkar gälla här.
+>
+>
+>
+> Sedan undrar jag också lite över relevansen av att plotta mot alla p i
+> intervallet (1,2). I din artikel " Equal-Order Stabilized Finite Element
+> Approximation of the p-Stokes Equations on Anisotropic Cartesian Meshes"
+> så skriver du att p \approx 1,33 = 4/3 för is. Undrar därmed hur mkt
+> fokus vi ska lägga på andra p:n än just detta, men det är ju något vi
+> kan diskutera mer när vi ses.
+>
+Det är mest för att kunna kolla att det stämmer med Hirns formel 6.14,
+så vi förstår om vår ismodell beter sig enligt teori och om inte, varför.
+>
+> Det som kommer vara vårt fokus framöver är väl egentligen att komma på
+> ett sätt att extrahera A-matrisen, samt ta ut beloppet av
+> töjningstensorn som också var en del i hans uppskattning, kanske med
+> hjälp av er, då det verkade lite klurigt att göra utan erfarenhet av
+> FEniCS. Hittade någon grej här men har inte grävt överdrivet mycket
+> (https://bitbucket.org/fenics-apps/cbc.block/src/master/block/block_assemble.py).
+> Ur denna hoppas vi kunna göra en jämförelse med Hirns resultat och inte
+> långt efter förhoppningsvis kunna dra några slutsatser om de linjära
+> lösarna baserad på all information vi framtagit.
+>
+Christian håller på!
+>
+> Dock lär vi ju nästa vecka börja kika mer på Hirns experiment  för
+> Newton's metod, och jag personligen känner att en del tid där också
+> kommer behöva läggas på att läsa in sig lite på teorin.
+>
+Ja om ni inte riktigt vet hur ni ska gå vidare innan vi diskuterar på
+gruppmötet så lägg tiden på att läsa på på detta, och på att skriva på
+rapporten.
+>
+>
+>
+En annan sak jag tänkte på är att det vore snyggt att ha plottarna med
+residualen vs antal newton iterationer så att det är log på y-axeln men
+inte x-axeln, men om det är tradigt att ändra så strunt i  det.
+
+Bra jobbat, det är inte ett lätt problem ni har men jag tycker det är
+sjukt intressant!
