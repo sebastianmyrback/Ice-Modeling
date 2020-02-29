@@ -33,4 +33,7 @@ Jonatan och Sebastian hade ett spontanmöte med Josefin och Christian då alla r
 Jonatan har idag tagit fram plottar för hur antalet krylov-iterationer beror på storleken på elementen. Reslutaten visade att GMRES och bicgstab med ilu som prekonditionerare gav minst krylov-iterationer innan konvergens.
 
 ### 19/2 - Framtagning av fler Newton plottar
-Sebastian har idag tagit fram en undersökning för hur konditionstalet beror på newton iterationerna. Ett minimum av konditionstalet finnes för lägre antal iterationer, medan peakar kan ses för konditionstal mellan 6-10 framför allt. 
+Sebastian har idag tagit fram en undersökning för hur konditionstalet beror på newton iterationerna. Ett minimum av konditionstalet finnes för lägre antal iterationer, medan peakar kan ses för konditionstal mellan 6-10 framför allt.
+
+### 27/2 Möte med forskningsgruppen + möte med Josefin och Christian
+Idag var var vi och presenterade vårt projekt för Josfin, Christian och Josefins två doktorander. Vi fick också höra vad de andra i gruppen forskar kring. Efter mötet pratade vi med Josefin och Christian om projektet och pratade om hur vi skulle ta fram konditionstalet för A-matrisen när Christian har skrivit kod som tar ut den.
