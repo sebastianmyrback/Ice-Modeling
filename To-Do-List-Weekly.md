@@ -23,7 +23,7 @@ Vi behöver också såklart ta fram alla ovanstående parametrar.
 
 De mer praktiska sakerna som behövs göras framöver är
 
-* Behöver klura lite på hur man tar fram dessa påstådda multigrid *linjära lösare* som Josefin nämnt. Jag hittar bara multigrid prekonditionerare, som inte konvergerar här (t.ex. 'amg'). 
+* ~Behöver klura lite på hur man tar fram dessa påstådda multigrid *linjära lösare* som Josefin nämnt. Jag hittar bara multigrid prekonditionerare, som inte konvergerar här (t.ex. 'amg').~ 
 * Behöver lyckas hämta ut värdena för trycket vid glaciärbotten, för att kunna ta fram Dp = p - rho*g*h. 
 
 De mer teoretiska sakerna som behövs förstås är
