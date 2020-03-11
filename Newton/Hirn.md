@@ -38,4 +38,4 @@ within the brackets represents the total number of iterations performed by the s
 control and it equals the number l^star that appears in Algorithm 3.1 with lambda = 3/4. As initial
 guess for Newton’s method on level l, we chose the FE solution corresponding to level l−1."
 
-Gör verkligen vi detta? För han får konvergens till TOL = 10exp-11 på cirka 7-8 iterationer. För oss krävs det mer kring 20 stycken.
+Gör verkligen vi detta? För han får konvergens till TOL = 10exp-11 på cirka 7-8 iterationer. För oss krävs det mer kring 20 stycken för TOL = 1exp-7.
