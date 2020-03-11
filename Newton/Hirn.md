@@ -18,7 +18,7 @@ Diskretiseringen av problemet görs
 * Hirn får p-Stokes att konvergera mha GMRES samt multigrid prekonditionerare, det lyckas inte vi med. Beror det på att han använder LPS medan vi använder GLS som stabilisering?
 
 
-### Kvadratproblemet
+## Kvadratproblemet
 
 Vi har nu lyckats implementera kvadratproblemet. Det fungerar bra, om än långsamt för direkta lösare. För vissa linjära lösare fungerar det snabbt och bra upp till en viss mesh storlek där de **linjära lösarna inte konvergerar** ("KSP_DIVERGED_BREAKDOWN
 A breakdown in the Krylov method was detected so the method could not continue to enlarge the Krylov space. Could be due to a singlular matrix or preconditioner").
@@ -49,3 +49,12 @@ is weighted by the relaxation parameter lambda. The step-size control enables th
 of Newton’s method, i.e., the independence of the convergence with respect to the choice
 of u0
 h. If l^star = 0, then Algorithm 3.1 performs one full Newton cycle."
+
+### Konvergensordning
+
+För eps0 = 1, h = 1/nx, lambda = 0.6, och maximal gridsize 256:
+
+[0.27125261 0.08736796 0.02327888 0.00582187] convergence rate vel
+[0.63997459 0.22650198 0.02950423 0.00180077] convergence rate p
+
+Detta säger absolut ingenting.. Vi får helt enkelt hoppas på att felet ligger i hur vi mäter normen.
