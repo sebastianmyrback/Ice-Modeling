@@ -22,3 +22,7 @@ Diskretiseringen av problemet görs
 
 Vi har nu lyckats implementera kvadratproblemet. Det fungerar bra, om än långsamt för direkta lösare. För linjära lösare fungerar det snabbt och bra upp till en viss mesh storlek där de linjära lösarna inte konvergerar.
 
+| Linear Solver + Preconditioner| 16x16 | 32x32 | 64x64 | 128x128 |
+| --------------------:| -----:|------:| -----:| -----:|
+| (gmres, ilu) | yes | no | no | no |
+| (bicgstab, ilu) | yes | yes | yes | no |
