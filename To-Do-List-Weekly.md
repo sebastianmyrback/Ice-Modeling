@@ -40,3 +40,13 @@ De mer teoretiska sakerna som behövs förstås är
 
 * *Plots för antal Krlov mot grid points, tid mot grid points och konditionstal mot grid points (dessa fula dock)*.
 
+### v.9 
+
+Här har grejer försvunnit?..
+
+### v.10 - v.11
+
+Vi gör Hirns experiment 3 i kapitel 6. 
+
+* Fråga: vad gör Newton relaxation parameter i Christians kod?
+
