@@ -24,5 +24,5 @@ Vi har nu lyckats implementera kvadratproblemet. Det fungerar bra, om än långs
 
 | Linear Solver + Preconditioner| 16x16 | 32x32 | 64x64 | 128x128 |
 | --------------------:| -----:|------:| -----:| -----:|
-| (gmres, ilu) | yes | no | no | no |
+| (gmres, ilu) | yes | yes | yes | no |
 | (bicgstab, ilu) | yes | yes | yes | no |
