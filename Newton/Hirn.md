@@ -39,3 +39,13 @@ control and it equals the number l^star that appears in Algorithm 3.1 with lambd
 guess for Newton’s method on level l, we chose the FE solution corresponding to level l−1."
 
 Gör verkligen vi detta? För han får konvergens till TOL = 10exp-11 på cirka 7-8 iterationer. För oss krävs det mer kring 20 stycken för TOL = 1exp-7.
+
+Vidare, gällande Newtons metod implementerad av Hirn så skriver han såhär:
+
+"Step 3 of Algorithm 3.1 includes the step-size control which is crucial when highly nonlinear
+p-structure problems are solved via Newton’s method. In general, the Newton update zk
+h
+is weighted by the relaxation parameter lambda. The step-size control enables the globalization
+of Newton’s method, i.e., the independence of the convergence with respect to the choice
+of u0
+h. If l^star = 0, then Algorithm 3.1 performs one full Newton cycle."
