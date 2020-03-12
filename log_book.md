@@ -43,3 +43,7 @@ Idag var var vi och presenterade vårt projekt för Josfin, Christian och Josefi
 * Jämföra med exakt lösning, dvs litet epsilon.
 * Använd hastigheten för randen enligt Hirn.
 * Sätt en punkt i hörnet av trycket enligt Hirn.
+
+### 9-12/3 Heldagar med implementation
+
+
