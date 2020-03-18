@@ -50,3 +50,11 @@ Vi gör Hirns experiment 3 i kapitel 6.
 
 * Fråga: vad gör Newton relaxation parameter i Christians kod?
 
+### v.12
+
+Möte mer Josefin.
+
+* Tryckrandvärdena: varför definierar vi det som vi gör, varför räcker det med en punkt i ett hörne? 
+* Hur mycket tid skall vi lägga på att försöka få detta experiment att fungera? 
+* Behöver A matrisen asap, vet vi att Christians kod fungerar eller inte?
+* Konditionstalsanalysen. Mejla Christian och fråga om det är grönt att använda hans kod på bitbucket?
