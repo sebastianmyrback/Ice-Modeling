@@ -30,18 +30,19 @@ mu0 = 1.0          # kinematic viscosity
 # Solve the problem one time
 def solve(nx, ny, eps0, linear_solver, preconditioner):
 
-    """Booleans for different methods and solutions"""
-    # (Make sure only one of the methods/solutions are marked as True)
+    """Booleans for different methods and problems"""
+    # (Make sure only one of the methods/problems are marked as True)
+    # Note that the sympy method only works for the simple and Hirn problems
     sympy_method = False
     Josefin_method = True
 
-    simple_solution = False
-    sinus_solution = True
-    Hirn_solution = False
+    simple_problem = False
+    sinus_problem = True
+    Hirn_problem = False
 
-    if simple_solution or sinus_solution:
+    if simple_problem or sinus_problem:
         p_param = 2.0
-    if Hirn_solution:
+    if Hirn_problem:
         p_param = 1.3
 
     # Build mesh
@@ -72,18 +73,18 @@ def solve(nx, ny, eps0, linear_solver, preconditioner):
     ps.pstokes_parameters['eps_reg'] = eps/2
 
     # Expressions for velocity and pressure from A.Hirn
-    if simple_solution:
+    if simple_problem:
         # v(x) = (y, -x)
         # p(x) = 0
         v_e = Expression(('x[1]', '-x[0]'), degree=5)
         p_e = Expression('0', degree=5)
 
-    if sinus_solution:
+    if sinus_problem:
         v_e = Expression(('sin(pi*x[0])*sin(pi*x[1])', 'sin(pi*x[0])*sin(pi*x[1])'), degree=5)
         # p(x) = 0
         p_e = Expression('0', degree=5)
 
-    if Hirn_solution:
+    if Hirn_problem:
         # v(x) = |x| ^ 7 * (x1, -x2)
         v_e = Expression(('pow(hypot(x[0], x[1]), 7) * x[0]',
                                  'pow(hypot(x[0], x[1]), 7) * (-x[1])'), degree=5)
@@ -144,13 +145,13 @@ def solve(nx, ny, eps0, linear_solver, preconditioner):
         results regarding the pressure. """
 
     if sympy_method:
-        if Hirn_solution:
+        if Hirn_problem:
             v_symb_x = (x1**2 + x2**2)**7 * x1
             v_symb_y = -(x1**2 + x2**2)**7 * x2
-        if sinus_solution:
+        if sinus_problem:
             v_symb_x = sin(pi * x1) * sin(pi * x2)
             v_symb_y = sin(pi * x1) * sin(pi * x2)
-        if simple_solution:
+        if simple_problem:
             v_symb_x = x2
             v_symb_y = -x1
         Dv11 = v_symb_x.diff(x1, 1)
@@ -184,17 +185,17 @@ def solve(nx, ny, eps0, linear_solver, preconditioner):
 
 
         # Hirn problem
-        if Hirn_solution:
+        if Hirn_problem:
             body_force_x = '(x[0] == 0 && x[1] == 0) ? 0.0 :(29*pow(x[0],2)*x[1])/(20*pow((pow(x[0],2) + pow(x[1],2)),(69/40))) - x[1]/pow((pow(x[0],2) + pow(x[1],2)),(29/40)) - 7*pow(2,(2 - p_param/2))*x[0]*pow((pow(x[0],2) + pow(x[1],2)),(3/2))*(8*pow(x[0],2) +3*pow(x[1],2))*pow((357*pow(x[0],2)*pow(x[1],12) + 875*pow(x[0],4)*pow(x[1],10) + 1295*pow(x[0],6)*pow(x[1],8) + 1295*pow(x[0],8)*pow(x[1],6) + 875*pow(x[0],10)*pow(x[1],4) + 357*pow(x[0],12)*pow(x[1],2) + 2*pow(eps,2) + 65*pow(x[0],14) + 65*pow(x[1],14)),(p_param/2 - 1))-7*pow(2,(3 - p_param/2))*x[0]*pow((pow(x[0],2) + pow(x[1],2)),(13/2))*(p_param/2 - 1)*(8*pow(x[0],2) + pow(x[1],2))*(46*pow(x[0],2)*pow(x[1],2) + 65*pow(x[0],4) + 51*pow(x[1],4))*pow((357*pow(x[0],2)*pow(x[1],12) + 875*pow(x[0],4)*pow(x[1],10) + 1295*pow(x[0],6)*pow(x[1],8) + 1295*pow(x[0],8)*pow(x[1],6) + 875*pow(x[0],10)*pow(x[1],4) + 357*pow(x[0],12)*pow(x[1],2) + 2*pow(eps,2) + 65*pow(x[0],14) + 65*pow(x[1],14)),(p_param/2 - 2))'
             body_force_y = '(x[0] == 0 && x[1] == 0) ? 0.0 :(29*pow(x[1],2)*x[0])/(20*pow((pow(x[0],2) + pow(x[1],2)),(69/40))) - x[0]/pow((pow(x[0],2) + pow(x[1],2)),(29/40)) + 7*pow(2,(2 - p_param/2))*x[1]*pow((pow(x[0],2) + pow(x[1],2)),(3/2))*(8*pow(x[1],2) +3*pow(x[0],2))*pow((357*pow(x[0],2)*pow(x[1],12) + 875*pow(x[0],4)*pow(x[1],10) + 1295*pow(x[0],6)*pow(x[1],8) + 1295*pow(x[0],8)*pow(x[1],6) + 875*pow(x[0],10)*pow(x[1],4) + 357*pow(x[0],12)*pow(x[1],2) + 2*pow(eps,2) + 65*pow(x[0],14) + 65*pow(x[1],14)),(p_param/2 - 1))+7*pow(2,(3 - p_param/2))*x[1]*pow((pow(x[0],2) + pow(x[1],2)),(13/2))*(p_param/2 - 1)*(8*pow(x[1],2) + pow(x[0],2))*(46*pow(x[0],2)*pow(x[1],2) + 65*pow(x[1],4) + 51*pow(x[0],4))*pow((357*pow(x[0],2)*pow(x[1],12) + 875*pow(x[0],4)*pow(x[1],10) + 1295*pow(x[0],6)*pow(x[1],8) + 1295*pow(x[0],8)*pow(x[1],6) + 875*pow(x[0],10)*pow(x[1],4) + 357*pow(x[0],12)*pow(x[1],2) + 2*pow(eps,2) + 65*pow(x[0],14) + 65*pow(x[1],14)),(p_param/2 - 2))'
 
         # Sinus problem
-        if sinus_solution:
+        if sinus_problem:
             body_force_x = '(16*pow(pi,2)*pow((3*pow(pi,2) - 2*pow(pi,2)*cos(2*pi*(x[0] + x[1])) + 8*pow(eps,2) - pow(pi,2)*cos(2*pi*(x[0] - x[1]))),(p_param/2))*((pow(pi,2)*cos(pi*(3*x[0] - x[1])))/2 - pow(pi,2)*cos(3*pi*(x[0] + x[1])) - 8*pow(eps,2)*cos(pi*(x[0] + x[1])) + (3*pow(pi,2)*cos(pi*(x[0] - x[1])))/4 + (pow(pi,2)*cos(pi*(x[0] - 3*x[1])))/2 - (3*pow(pi,2)*cos(pi*(x[0] + 3*x[1])))/2 +   (pow(pi,2)*cos(pi*(3*x[0] + x[1])))/2 + (pow(pi,2)*cos(3*pi*(x[0] - x[1])))/4 + 4*pow(eps,2)*cos(pi*(x[0] - x[1])) + (p_param*pow(pi,2)*cos(pi*(x[0] - x[1])))/4 + (p_param*pow(pi,2)*cos(pi*(x[0] + 3*x[1])))/2 - (p_param*pow(pi,2)*cos(pi*(3*x[0] + x[1])))/2 - (p_param*pow(pi,2)*cos(3*pi*(x[0] - x[1])))/4 - p_param*pow(pi,2)*cos(pi*(x[0] + x[1])) + p_param*pow(pi,2)*cos(3*pi*(x[0] + x[1]))))/(pow(2,((3*p_param)/2))*pow((pow(pi,2)*cos(2*pi*(x[0] - x[1])) + 2*pow(pi,2)*cos(2*pi*(x[0] + x[1])) - 8*pow(eps,2) - 3*pow(pi,2)),2))'
             body_force_y = '(16*pow(pi,2)*pow((3*pow(pi,2) - 2*pow(pi,2)*cos(2*pi*(x[0] + x[1])) + 8*pow(eps,2) - pow(pi,2)*cos(2*pi*(x[0] - x[1]))),(p_param/2))*((pow(pi,2)*cos(pi*(3*x[0] - x[1])))/2 - pow(pi,2)*cos(3*pi*(x[0] + x[1])) - 8*pow(eps,2)*cos(pi*(x[0] + x[1])) + (3*pow(pi,2)*cos(pi*(x[0] - x[1])))/4 + (pow(pi,2)*cos(pi*(x[0] - 3*x[1])))/2 +   (pow(pi,2)*cos(pi*(x[0] + 3*x[1])))/2 - (3*pow(pi,2)*cos(pi*(3*x[0] + x[1])))/2 + (pow(pi,2)*cos(3*pi*(x[0] - x[1])))/4 + 4*pow(eps,2)*cos(pi*(x[0] - x[1])) + (p_param*pow(pi,2)*cos(pi*(x[0] - x[1])))/4 - (p_param*pow(pi,2)*cos(pi*(x[0] + 3*x[1])))/2 + (p_param*pow(pi,2)*cos(pi*(3*x[0] + x[1])))/2 - (p_param*pow(pi,2)*cos(3*pi*(x[0] - x[1])))/4 - p_param*pow(pi,2)*cos(pi*(x[0] + x[1])) + p_param*pow(pi,2)*cos(3*pi*(x[0] + x[1]))))/(pow(2,((3*p_param)/2))*pow((pow(pi,2)*cos(2*pi*(x[0] - x[1])) + 2*pow(pi,2)*cos(2*pi*(x[0] + x[1])) - 8*pow(eps,2) - 3*pow(pi,2)),2))'
 
         # Simple problem
-        if simple_solution:
+        if simple_problem:
             body_force_x = '0'
             body_force_y = '0'
 
