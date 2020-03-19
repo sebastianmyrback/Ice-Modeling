@@ -67,10 +67,8 @@ def solve(nx, ny, eps0, linear_solver, preconditioner):
     #ps.pstokes_parameters['rho'] = rho
     #ps.pstokes_parameters['scale_units'] = False  # physical units m/s and Pa
 
-    ps.convert_to_Carreau(ps.pstokes_parameters, p_param, mu0, eps0, si_units=False)
+    ps.convert_to_Carreau(ps.pstokes_parameters, p_param, mu0, eps, si_units=True)
     ps.pstokes_parameters['rho'] = rho
-    # Rescaling of Hirn's epsilon
-    ps.pstokes_parameters['eps_reg'] = eps/2
 
     # Expressions for velocity and pressure from A.Hirn
     if simple_problem:
