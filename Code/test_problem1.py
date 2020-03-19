@@ -1,6 +1,6 @@
 """
 This script tries to reproduce numerical simulations/results from Adrian Hirn's dissertation "Finite Element Approximation
-of Problemsin Non-Newtonian Fluid Mechanics". In particular, Example 3 from Chapter 6 is considered.
+of Problems in Non-Newtonian Fluid Mechanics". In particular, Example 3 from Chapter 6 is considered.
 The example uses an analytical solution of the p-Stokes equations on a unit square.
 """
 
@@ -12,7 +12,7 @@ import sympy as sp
 
 x1, x2 = sp.symbols('x[0] x[1]')
 
-title_font = {'weight': 'bold', 'size': 20} # Set fonts for the plots
+title_font = {'weight': 'bold', 'size': 14} # Set fonts for the plots
 x_label_font = {'size': 14}
 y_label_font = {'size': 14}
 x_tick_font = {'size': 12}
@@ -23,7 +23,6 @@ y_tick_font = {'size': 12}
 
 mu = 1             # kinematic viscosity
 rho = 1            # density
-
 b = -1.45
 mu0 = 1.0          # kinematic viscosity
 
@@ -31,7 +30,8 @@ mu0 = 1.0          # kinematic viscosity
 # Solve the problem one time
 def solve(nx, ny, eps0, linear_solver, preconditioner):
 
-    # Booleans for different methods
+    """Booleans for different methods and solutions"""
+    # (Make sure only one of the methods/solutions are marked as True)
     sympy_method = False
     Josefin_method = True
 
@@ -55,16 +55,21 @@ def solve(nx, ny, eps0, linear_solver, preconditioner):
     h = np.maximum(1/nx, 1/ny)
     print(h_alt, 'h_alt')
     print(h, 'h')
+    # Hirn's epsilon
     eps = eps0*h_alt**(2/p_param)
     print(eps, 'current eps')
 
-    # Carreau model epsilon, this is just set a constant in the pstokes
-    # module, but is squared in Hirn's definition, so do that.
-    ps.pstokes_parameters['eps_reg'] = eps**2
-    ps.pstokes_parameters['p'] = p_param  # set the power-law paramter
-    ps.pstokes_parameters['A0'] = mu0  # unity pre-viscosity parameter, we believe this corresponds to Hirn's mu_0.
+    """Assign p-Stokes parameters"""
+    #ps.pstokes_parameters['eps_reg'] = eps ** 2
+    #ps.pstokes_parameters['p'] = p_param  # set the power-law paramter
+    #ps.pstokes_parameters['A0'] = mu0  # unity pre-viscosity parameter, we believe this corresponds to Hirn's mu_0.
+    #ps.pstokes_parameters['rho'] = rho
+    #ps.pstokes_parameters['scale_units'] = False  # physical units m/s and Pa
+
+    ps.convert_to_Carreau(ps.pstokes_parameters, p_param, mu0, eps0, si_units=False)
     ps.pstokes_parameters['rho'] = rho
-    ps.pstokes_parameters['scale_units'] = False  # physical units m/s and Pa
+    # Rescaling of Hirn's epsilon
+    ps.pstokes_parameters['eps_reg'] = eps/2
 
     # Expressions for velocity and pressure from A.Hirn
     if simple_solution:
@@ -83,7 +88,7 @@ def solve(nx, ny, eps0, linear_solver, preconditioner):
         v_e = Expression(('pow(hypot(x[0], x[1]), 7) * x[0]',
                                  'pow(hypot(x[0], x[1]), 7) * (-x[1])'), degree=5)
         # p(x) = |x|^b*x1*x2
-        p_e = Expression('(x[0] == 0 && x[1] == 0) ?0.0 :pow(hypot(x[0], x[1]), b) * x[0] * x[1]')
+        p_e = Expression('(x[0] == 0 && x[1] == 0) ?0.0 :pow(hypot(x[0], x[1]), b) * x[0] * x[1]', degree=5, b=b)
 
 
     # Boundary Conditions
@@ -270,7 +275,7 @@ def plot_profiles(u, p, u_e, p_e, W):
     plt.title('Velocity Profile', **title_font)
     cax = plot(u, cmap=plt.cm.jet, antialiased=True)
     cbar = plt.colorbar(cax)
-    cbar.ax.set_title('$v$')
+    #cbar.ax.set_title('$v$')
     plt.axis('tight')
     plt.show()
 
@@ -278,7 +283,7 @@ def plot_profiles(u, p, u_e, p_e, W):
     plt.title('Pressure Profile', **title_font)
     cax = plot(p, cmap=plt.cm.jet, antialiased=True)
     cbar = plt.colorbar(cax)
-    cbar.ax.set_title('$p$')
+    #cbar.ax.set_title('$p$')
     plt.axis('tight')
     plt.show()
 
@@ -290,7 +295,7 @@ def plot_profiles(u, p, u_e, p_e, W):
     plt.title('Difference between analytical and computed velocity', **title_font)
     cax = plot(u_diff, cmap=plt.cm.jet, antialiased=True)
     cbar = plt.colorbar(cax)
-    cbar.ax.set_title('$\mathbf{u}_h - \mathbf{u}$')
+    #cbar.ax.set_title('$\mathbf{u}_h - \mathbf{u}$')
     plt.axis('tight')
     plt.show()
 
@@ -301,7 +306,7 @@ def plot_profiles(u, p, u_e, p_e, W):
     plt.title('Difference between analytical and computed pressure', **title_font)
     cax = plot(p_diff, cmap=plt.cm.jet, antialiased=True)
     cbar = plt.colorbar(cax)
-    cbar.ax.set_title('$p_h - p$')
+    #cbar.ax.set_title('$p_h - p$')
     plt.axis('tight')
     plt.show()
 
