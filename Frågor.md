@@ -1,6 +1,6 @@
 ### pstokes
 * Varför en faktor 0.5 i uttrycket för strain-rate tensorn? Borde vara 1.
-* ~Varför är uttrycket i mu_eff just som det är?
+* ~Varför är uttrycket i mu_eff just som det är?~
 * Hur kan man ändra startgissningen i fenics? Det borde minska antalet newtoniterationer innan konvergens.
 * Hur ska undersökningen av konditionstalet för arolla gå till?
 * Varför konvergerar ISMIP-HOM så mycket snabbare med SI_units=True?
