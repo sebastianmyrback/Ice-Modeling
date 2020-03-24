@@ -47,3 +47,24 @@ Idag var var vi och presenterade vårt projekt för Josfin, Christian och Josefi
 ### 9-12/3 Heldagar med implementation
 
 
+### Zoom-möte med Josefin 24/3
+Vad vi kom fram till under mötet:
+
+
+loglog-plot för konditionstalsplottarna
+Hitta mailet med artikeln som relaterar j-matrisen med a-matrisen
+Låter rimligt att startgissningen ger mycket mindre antal newtoniterationer
+jämför epsilon som något litet, typ 1e-7 för att försäkra om att felet inte blir alldeles för stort med ett större epsilon. Kanske ta fram tabell som i Hirn för att visa detta.
+Inte konstigt att antalet newtoniterationer är så pass hög
+Dubbelkolla konvergensordningens linjäritet
+Kolla av hur den regulariseringsparametern någonting någotning tabell 6.6
+
+intressant med arolla, minskar newtoniterationerna med hirns epsilon och konvergeraden till samma lösning?
+
+För att kolla konvergensordningen av ismip-hom utan exakt lösning, gör lösning för fint mesh och itnerpolera till grövre mesh
+
+Hur tar vi fram h för ismip-hom och arolla då vi inte ha konvetionella mesh? behöver h för att göra studie av hirns epsilon
+
+Kolla ungefär på meshet hur stor h är 
+
+Kolla struktur
